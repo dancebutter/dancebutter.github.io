@@ -21,7 +21,7 @@
     <script src="js/game/game.detail.chart.config.js"></script>
 
     <script src="js/gameList/gameListDirective.js"></script>
-    <script src="js/gameList/game.detail.directive.js"></script>
+    <script src="js/game/game.detail.directive.js"></script>
   </head>
 
   <body ng-app="myApp" ng-controller="myCtrl">
@@ -52,12 +52,12 @@
     <div class="container">
       <game-list-directive
         actived-summoner="activedSummoner"
-        game-id="gameId"
+        actived-game-id="activedGameId"
         data-ng-show="gameListShow"
         ></game-list-directive>
       <game-detail-directive
         actived-summoner="activedSummoner"
-        game-id="currenctGameId"
+        actived-game-id="activedGameId"
         game-data-json="gameDataJson"
         data-ng-show="gameDetailShow"></game-detail-directive>
       <!-- <div class="row">

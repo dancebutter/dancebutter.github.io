@@ -35,7 +35,7 @@ myApp.controller('myCtrl', [ '$scope', 'gameDataService', function($scope, gameD
   $scope.testTemp = null;
   $scope.gameListShow = true;
   $scope.gameDetailShow = true;
-  $scope.gameId = null;
+  $scope.activedGameId = null;
 
   // events
   $scope.$watch('activedSummoner', function( newValue, oldValue ) {
@@ -45,9 +45,14 @@ myApp.controller('myCtrl', [ '$scope', 'gameDataService', function($scope, gameD
       // updateGameList();
     }
   });
-  $scope.$on('gameDetail:showGameDetail', function( event, gameId, summoner ) {
-    $scope.currenctGameId = gameId;
+  $scope.$watch('activedGameId', function( newValue, oldValue ) {
+    if( newValue != null && newValue != oldValue ) {
+      
+    }
   });
+  // $scope.$on('gameDetail:showGameDetail', function( event, gameId, summoner ) {
+  //   $scope.currenctGameId = gameId;
+  // });
   // events end
 
   // functions
