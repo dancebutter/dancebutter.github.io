@@ -12,10 +12,15 @@ function GameDetailDirective(
     // debugger;
     var statsChart = null;
     var statsSeries = [];
-    scope.$watch( 'gameDataJson', function( newValue, oldValue ) {
+    scope.$watch( 'activedGameId', function( newValue, oldValue ) {
       if( newValue && newValue !== oldValue ) {
-        statsSeries = chartService.generateSeries(newValue);
-        updateStatsChart();
+        gameDataService.getGameDetail(newValue)
+        .then(function(data) {
+          statsSeries = chartService.generateSeries(data);
+          updateStatsChart();
+        },function(error) {
+
+        });
       }
     });
 
@@ -46,8 +51,7 @@ function GameDetailDirective(
     templateUrl : 'js/game/game.detail.tmpl.html',
     scope : {
       activedSummoner : "=",
-      activedGameId : "=",
-      gameDataJson : "="
+      activedGameId : "="
     }
   };
 }
