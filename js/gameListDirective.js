@@ -76,7 +76,7 @@ myApp.directive('gameListDirective', [
     restrict : 'E',
     link : link,
     controller : controller,
-    templateUrl : 'gameList.tmpl.html',
+    templateUrl : 'js/gameList.tmpl.html',
     scope: {
       activedSummoner: "="
     }
