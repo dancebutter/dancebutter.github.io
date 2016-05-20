@@ -17,7 +17,7 @@
     <script src="js/myCtrl.js"></script>
 
     <script src="js/game.data.service.js"></script>
-    <script src="js/champion.data.service.js"></script>
+    <script src="js/champion/champion.data.service.js"></script>
     <script src="js/game.detail.chart.config.js"></script>
 
     <script src="js/gameListDirective.js"></script>
@@ -48,21 +48,11 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    <br><br>
     <div class="container">
-      <!-- <div class="row">
-        <div class="col-md-12">
-          <ul class="nav nav-pills">
-            <li role="presentation"
-                data-ng-repeat="(key, value) in summonerList track by $index"
-                data-ng-class="{active : value.actived}"
-                data-ng-click="clickName(value);">
-                  <a>{{value.nickName}}</a>
-            </li>
-          </ul>
-        </div>
-      </div> -->
       <game-list-directive
         actived-summoner="activedSummoner"
+        game-id="gameId"
         data-ng-show="gameListShow"
         ></game-list-directive>
       <game-detail-directive
@@ -70,11 +60,11 @@
         game-id="currenctGameId"
         game-data-json="gameDataJson"
         data-ng-show="gameDetailShow"></game-detail-directive>
-      <div class="row">
+      <!-- <div class="row">
         <input type="textarea" class="col-md-12" data-ng-model="gameDataJsonStr"/>
         <button class="btn btn-primary"
                 data-ng-click="submitGameData(gameDataJsonStr);">submit</button>
-      </div>
+      </div> -->
     </div>
   </body>
 

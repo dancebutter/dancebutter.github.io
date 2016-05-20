@@ -11,6 +11,7 @@
         <th>Spend Time</th>
         <th>Date</th>
         <th>Game Id</th>
+        <th>Detail</th>
       </tr>
       <tr data-ng-repeat="game in gameList track by $index">
         <td style="color: {{ game.win ? 'green' : 'red' }}">{{game.win ? 'Win' : 'Lost'}}</td>
@@ -19,6 +20,7 @@
         <td>{{game.timePlayed}}</td>
         <td>{{game.createDate | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
         <td>{{game.gameId}}</td>
+        <td><button class="btn btn-default" data-ng-click="getGameDetail(game.gameId)">Detail</button></td>
       </tr>
     </table>
   </div>

@@ -35,6 +35,7 @@ myApp.controller('myCtrl', [ '$scope', 'gameDataService', function($scope, gameD
   $scope.testTemp = null;
   $scope.gameListShow = true;
   $scope.gameDetailShow = true;
+  $scope.gameId = null;
 
   // events
   $scope.$watch('activedSummoner', function( newValue, oldValue ) {

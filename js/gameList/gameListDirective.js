@@ -68,17 +68,18 @@ myApp.directive('gameListDirective', [
   controller.$inject = ['$scope'];
   function controller( $scope ) {
     $scope.getGameDetail = function( gameId ) {
-      var testGameId = 2015415636;
-      $scope.$emit('gameDetail:showGameDetail', gameId, $scope.activedSummoner);
+      // var testGameId = 2015415636;
+      // $scope.$emit('gameDetail:showGameDetail', gameId, $scope.activedSummoner);
     }
   }
   return {
     restrict : 'E',
     link : link,
     controller : controller,
-    templateUrl : 'js/gameList.tmpl.html',
+    templateUrl : 'js/gameList/gameList.tmpl.html',
     scope: {
-      activedSummoner: "="
+      activedSummoner: "=",
+      gameId: "="
     }
   };
 }]);
