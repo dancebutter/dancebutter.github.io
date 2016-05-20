@@ -13,7 +13,7 @@
         <th>Game Id</th>
       </tr>
       <tr data-ng-repeat="game in gameList track by $index">
-        <td style="color: {{ game.win ? 'green' : 'red' }}">{{game.win}}</td>
+        <td style="color: {{ game.win ? 'green' : 'red' }}">{{game.win ? 'Win' : 'Lost'}}</td>
         <td>{{game.gameMode}}</td>
         <td><img width=40 ng-src="{{'http://ddragon.leagueoflegends.com/cdn/' + databaseVersion + '/img/champion/'+ game.championKey +'.png'}}">{{game.championKey}}</td>
         <td>{{game.timePlayed}}</td>
