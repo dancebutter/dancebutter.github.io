@@ -58,13 +58,15 @@ function GameDetailChartConfigService() {
       visible : true,
       name : 'Total Damage Dealt',
       data : totalDamageDealt,
-      color : "#FF0000"
+      color : "#FF0000",
+      showCheckbox : true
     });
     tempSeries.push({
       visible : true,
       name : 'Total Damage Taken',
       data : totalDamageTaken,
-      color : "#0000FF"
+      color : "#0000FF",
+      showCheckbox : true
     });
 
     return tempSeries;
