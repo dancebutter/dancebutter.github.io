@@ -41,7 +41,7 @@ myApp.controller('myCtrl', [ '$scope', 'gameDataService', function($scope, gameD
     if( oldValue !== newValue ) {
       oldValue.actived = false;
       newValue.actived = true;
-      updateGameList();
+      // updateGameList();
     }
   });
   $scope.$on('gameDetail:showGameDetail', function( event, gameId, summoner ) {
