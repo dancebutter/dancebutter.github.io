@@ -1,1 +1,58 @@
-Hello World
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="http://code.highcharts.com/highcharts.src.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.src.js"></script>
+
+    <script src="js/myApp.js"></script>
+    <script src="js/myCtrl.js"></script>
+
+    <script src="js/game.data.service.js"></script>
+    <script src="js/champion.data.service.js"></script>
+    <script src="js/game.detail.chart.config.js"></script>
+
+    <script src="js/gameListDirective.js"></script>
+    <script src="js/game.detail.directive.js"></script>
+  </head>
+
+  <body ng-app="myApp">
+    <div class="container-fluid" ng-controller="myCtrl">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-pills">
+            <li role="presentation"
+                data-ng-repeat="(key, value) in summonerList track by $index"
+                data-ng-class="{active : value.actived}"
+                data-ng-click="clickName(value);">
+                  <a>{{value.nickName}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <game-list-directive
+        actived-summoner="activedSummoner"
+        data-ng-show="gameListShow"
+        ></game-list-directive>
+      <game-detail-directive
+        actived-summoner="activedSummoner"
+        game-id="currenctGameId"
+        game-data-json="gameDataJson"
+        data-ng-show="gameDetailShow"></game-detail-directive>
+      <div class="row">
+        <input type="textarea" class="col-md-12" data-ng-model="gameDataJsonStr"/>
+        <button class="btn btn-primary"
+                data-ng-click="submitGameData(gameDataJsonStr);">submit</button>
+      </div>
+    </div>
+  </body>
+
+</html>
