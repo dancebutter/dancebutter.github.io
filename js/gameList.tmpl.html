@@ -15,7 +15,7 @@
       <tr data-ng-repeat="game in gameList track by $index">
         <td style="color: {{ game.win ? 'green' : 'red' }}">{{game.win}}</td>
         <td>{{game.gameMode}}</td>
-        <td><img width=40 ng-src="{{'http://ddragon.leagueoflegends.com/cdn/' + {{databaseVersion}} + '/img/champion/'+ game.championKey +'.png'}}">{{game.championKey}}</td>
+        <td><img width=40 ng-src="{{'http://ddragon.leagueoflegends.com/cdn/' + databaseVersion + '/img/champion/'+ game.championKey +'.png'}}">{{game.championKey}}</td>
         <td>{{game.timePlayed}}</td>
         <td>{{game.createDate | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
         <td>{{game.gameId}}</td>
