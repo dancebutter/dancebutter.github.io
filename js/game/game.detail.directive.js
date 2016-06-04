@@ -51,7 +51,8 @@ function GameDetailDirective(
     templateUrl : 'js/game/game.detail.tmpl.html',
     scope : {
       activedSummoner : "=",
-      activedGameId : "="
+      activedGameId : "=",
+      activedGame: "="
     }
   };
 }

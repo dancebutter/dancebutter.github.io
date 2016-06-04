@@ -27,6 +27,7 @@ myApp.directive('gameListDirective', [
     }
 
     function generateGameList( games ) {
+      // scope.gameList = games;
       for( var i = 0; i < games.length; i++ ) {
         var timePlayed = Math.floor(games[i].stats.timePlayed / 60) + ':' + (games[i].stats.timePlayed % 60);
         var championKey = getChampionKeyById(games[i].championId);
@@ -36,7 +37,8 @@ myApp.directive('gameListDirective', [
           championKey : championKey,
           timePlayed : timePlayed,
           createDate : games[i].createDate,
-          gameId : games[i].gameId
+          gameId : games[i].gameId,
+          stats : games[i].stats
         };
         scope.gameList.push(temp);
       }
@@ -67,11 +69,12 @@ myApp.directive('gameListDirective', [
 
   controller.$inject = ['$scope'];
   function controller( $scope ) {
-    $scope.getGameDetail = function( gameId ) {
-      $scope.activedGameId = gameId;
+    $scope.getGameDetail = function( game ) {
+      $scope.activedGame = game;
+      $scope.activedGameId = game.gameId;
       // var testGameId = 2015415636;
       // $scope.$emit('gameDetail:showGameDetail', gameId, $scope.activedSummoner);
-    }
+    };
   }
   return {
     restrict : 'E',
@@ -80,7 +83,8 @@ myApp.directive('gameListDirective', [
     templateUrl : 'js/gameList/gameList.tmpl.html',
     scope: {
       activedSummoner: "=",
-      activedGameId: "="
+      activedGameId: "=",
+      activedGame: "="
     }
   };
 }]);

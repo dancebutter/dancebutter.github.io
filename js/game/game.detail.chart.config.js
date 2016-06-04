@@ -25,8 +25,7 @@ function GameDetailChartConfigService() {
       series : null,
       tooltip: {
           formatter: function () {
-              return '<b>' + this.series.name + '</b><br/>' +
-                  this.point.name + ' ' + this.point.y;
+              return '<b>' + this.series.name + '</b><br/>' + this.point.y;
           }
       }
     };

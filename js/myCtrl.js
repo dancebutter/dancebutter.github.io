@@ -18,17 +18,23 @@ myApp.controller('myCtrl', [ '$scope', 'gameDataService', function($scope, gameD
       summonerId : 35468371,
       actived : false
     },
+    '00Mirana00' : {
+      nickName : '拉里',
+      summonerName : '00Mirana00',
+      summonerId : 25857364,
+      actived : false
+    },
     'woaichibaozi' : {
       nickName : '李老师',
       summonerName : 'woaichibaozi',
       summonerId : 32524746,
       actived : false
     },
-    '00Mirana00' : {
-      nickName : '拉里',
-      summonerName : '00Mirana00',
-      summonerId : 25857364,
-      actived : false
+    'AsapAoi' : {
+        nickName : '变态儿童',
+        summonerName : 'AsapAoi',
+        summonerId : 69539468,
+        actived : false
     }
   };
   $scope.activedSummoner = $scope.summonerList.uncletai;
@@ -47,7 +53,7 @@ myApp.controller('myCtrl', [ '$scope', 'gameDataService', function($scope, gameD
   });
   $scope.$watch('activedGameId', function( newValue, oldValue ) {
     if( newValue != null && newValue != oldValue ) {
-      
+
     }
   });
   // $scope.$on('gameDetail:showGameDetail', function( event, gameId, summoner ) {
