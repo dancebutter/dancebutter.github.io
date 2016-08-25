@@ -8,8 +8,8 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
       url : "/gamePage",
       templateUrl : "js/gamePage/gamePage.html"
     })
-    .state('otherPage', {
-      url : "/otherPage",
-      templateUrl : "js/otherPage.html"
+    .state('timeTable', {
+      url : "/timeTable",
+      templateUrl : "js/timeTable/timeTable.html"
     });
 }]);
