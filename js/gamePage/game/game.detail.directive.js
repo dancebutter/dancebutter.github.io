@@ -48,7 +48,7 @@ function GameDetailDirective(
     restrict : 'E',
     link : GameDetailLink,
     controller : GameDetailController,
-    templateUrl : 'js/game/game.detail.tmpl.html',
+    templateUrl : 'js/gamePage/game/game.detail.tmpl.html',
     scope : {
       activedSummoner : "=",
       activedGameId : "=",

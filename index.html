@@ -14,27 +14,17 @@
     <script src="js/openSource/Highcharts-4.2.5/js/highcharts.js"></script>
     <script src="js/openSource/Highcharts-4.2.5/js/highcharts-more.js"></script>
 
-    <!-- <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"> -->
-    <!-- Optional theme -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous"> -->
-    <!-- Latest compiled and minified JavaScript -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <script src="http://code.highcharts.com/highcharts.src.js"></script>
-    <script src="http://code.highcharts.com/highcharts-more.src.js"></script> -->
-
     <script src="js/myApp.js"></script>
     <script src="js/myCtrl.js"></script>
-    <script src="js/gamePage.controller.js"></script>
+    <!-- game page start -->
+    <script src="js/gamePage/gamePage.controller.js"></script>
+    <script src="js/gamePage/game/game.data.service.js"></script>
+    <script src="js/gamePage/champion/champion.data.service.js"></script>
+    <script src="js/gamePage/game/game.detail.chart.config.js"></script>
+    <script src="js/gamePage/gameList/gameListDirective.js"></script>
+    <script src="js/gamePage/game/game.detail.directive.js"></script>
+    <!-- game page end -->
 
-    <script src="js/game/game.data.service.js"></script>
-    <script src="js/champion/champion.data.service.js"></script>
-    <script src="js/game/game.detail.chart.config.js"></script>
-
-    <script src="js/gameList/gameListDirective.js"></script>
-    <script src="js/game/game.detail.directive.js"></script>
   </head>
 
   <body ng-app="myApp" data-ng-controller="myCtrl">
@@ -61,34 +51,10 @@
             </li>
           </ul>
         </div>
-        <!-- <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li role="presentation"
-                data-ng-repeat="(key, value) in summonerList track by $index"
-                data-ng-class="{active : value.actived}"
-                data-ng-click="clickName(value);">
-                <a href="#">{{value.nickName}}</a>
-            </li>
-          </ul>
-        </div> -->
-        <!--/.nav-collapse -->
       </div>
     </nav>
     <br><br><br>
     <div ui-view></div>
-    <!-- <div class="container">
-      <game-list-directive
-        actived-summoner="activedSummoner"
-        actived-game-id="activedGameId"
-        actived-game="activedGame"
-        data-ng-show="gameListShow"
-        ></game-list-directive>
-      <game-detail-directive
-        actived-summoner="activedSummoner"
-        actived-game-id="activedGameId"
-        actived-game="activedGame"
-        data-ng-show="gameDetailShow"></game-detail-directive>
-    </div> -->
   </body>
 
 </html>

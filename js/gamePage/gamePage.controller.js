@@ -1,4 +1,5 @@
-myApp.controller('gamePageCtrl', ['$scope', function($scope) {
+GamePageCtrl.$inject = ['$scope'];
+function GamePageCtrl($scope) {
   $scope.summonerList = {
     'uncletai' : {
       nickName : '我',
@@ -69,4 +70,6 @@ myApp.controller('gamePageCtrl', ['$scope', function($scope) {
     $scope.gameDataJson = JSON.parse( gameDataJsonStr );
   };
   // functions end
-}]);
+}
+
+myApp.controller('gamePageCtrl', GamePageCtrl);

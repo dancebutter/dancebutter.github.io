@@ -6,7 +6,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
   $stateProvider
     .state('gamePage', {
       url : "/gamePage",
-      templateUrl : "js/gamePage.html"
+      templateUrl : "js/gamePage/gamePage.html"
     })
     .state('otherPage', {
       url : "/otherPage",

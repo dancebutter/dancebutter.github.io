@@ -1,4 +1,5 @@
-myApp.factory('gameDataService',['$http', '$q', function($http, $q){
+GameDataService.$inject = ['$http', '$q'];
+function GameDataService( $http, $q ) {
   var BASE_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/';
   var GAME_DETAIL_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/match/';
   var API_KEY = 'b5372e49-1de2-49cd-bc63-98a7e6564ad9';
@@ -59,4 +60,5 @@ myApp.factory('gameDataService',['$http', '$q', function($http, $q){
     var url = GAME_DETAIL_URL + gameId + '?api_key=' + API_KEY;
     return ajaxCall(url);
   }
-}]);
+}
+myApp.factory('gameDataService', GameDataService);

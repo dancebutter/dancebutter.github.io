@@ -1,9 +1,5 @@
-myApp.directive('gameListDirective', [
-                                        'gameDataService',
-                                        'championDataService',
-                                        function( gameDataService,
-                                                  championDataService
-                                                  ) {
+GameListDirective.$inject = ['gameDataService', 'championDataService'];
+function GameListDirective( gameDataService, championDataService ) {
   link.$inject = ['scope', 'attr', 'element', '$q'];
   function link( scope, attr, element, $q ) {
     scope.gameList = [];
@@ -80,11 +76,12 @@ myApp.directive('gameListDirective', [
     restrict : 'E',
     link : link,
     controller : controller,
-    templateUrl : 'js/gameList/gameList.tmpl.html',
+    templateUrl : 'js/gamePage/gameList/gameList.tmpl.html',
     scope: {
       activedSummoner: "=",
       activedGameId: "=",
       activedGame: "="
     }
   };
-}]);
+}
+myApp.directive('gameListDirective', GameListDirective);
