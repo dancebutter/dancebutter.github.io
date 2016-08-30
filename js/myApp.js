@@ -11,5 +11,9 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
     .state('timeTable', {
       url : "/timeTable",
       templateUrl : "js/timeTable/timeTable.html"
+    }).
+    state('musicDownload', {
+      url : "/musicDownload",
+      templateUrl : "js/musicDownload/musicDownload.html"
     });
 }]);

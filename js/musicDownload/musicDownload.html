@@ -1,0 +1,11 @@
+<div class="container" data-ng-controller="musicDownloadCtrl">
+  <div class="col-md-12">
+    <form>
+      <div class="form-group">
+        <label for="musicNameInput">请输入歌名</label>
+        <input type="text" class="form-control" id="musicNameInput" placeholder="请输入歌名" data-ng-model="musicName">
+      </div>
+      <button type="submit" class="btn btn-success" data-ng-click="searchMusicByName()">搜索</button>
+    </form>
+  </div>
+</div>

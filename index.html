@@ -25,6 +25,11 @@
     <script src="js/gamePage/game/game.detail.directive.js"></script>
     <!-- game page end -->
 
+    <!-- Music Download Page -->
+    <script src="js/musicDownload/musicDownload.service.js"></script>
+    <script src="js/musicDownload/musicDowload.controller.js"></script>
+    <!-- Music Download Page End -->
+
   </head>
 
   <body ng-app="myApp" data-ng-controller="myCtrl">
@@ -48,6 +53,10 @@
             <li role="presentation"
                 data-ng-class="">
                 <a ui-sref="timeTable">TimeTable</a>
+            </li>
+            <li role="presentation"
+                data-ng-class="">
+                <a ui-sref="musicDownload">MusicDownload</a>
             </li>
           </ul>
         </div>
