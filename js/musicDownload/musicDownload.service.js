@@ -1,43 +1,55 @@
 MusicDownloadService.$inject = ["$q", "$http"];
 function MusicDownloadService( $q, $http ) {
   var service = {
-    getMusicListByName : getMusicListByName
+    getMusicListByName : getMusicListByName,
+    getMusicDetailById : getMusicDetailById
   };
   return service;
   function getMusicListByName( musicName ) {
     // TODO: This function is NOT working!!!
     if( musicName ) {
-      // "http://mp3.baidu.com/dev/api/?tn=getinfo&ct=0&word=%E6%B5%81%E6%B5%AA%E8%AE%B0&ie=utf-8&format=json"
-      var urlPrefix = "http://musicmini.baidu.com/app/search/searchList.php?qword={";
-      var urlSurfix = "}&ie=utf-8&page={1}";
-
-      // var urlPrefix = "http://mp3.baidu.com/dev/api/?tn=getinfo&ct=0&word=";
-      // var urlSurfix = "&ie=utf-8&format=json";
-      var url = urlPrefix + musicName + urlSurfix;
-
-      // var url = "http://ting.baidu.com/data/music/links?songIds={247911654}";
-
+      var urlPrefix = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=webapp_music&method=baidu.ting.search.catalogSug&format=json&query=";
+      var urlSurfix = "&_=1413017198449";
+      musicName = encodeURI(musicName);
+      var url = urlPrefix + musicName;
+      // var url = urlPrefix + musicName + urlSurfix;
       var deferred = $q.defer();
-      var httpConfig = {
-        url : url,
-        // method : 'GET',
-        headers : {
-          'Access-Control-Allow-Origin' : '*'
-        }
-        // dataType : 'JSONP',
-        // success : function(data) {
-        //   deferred.resolve(data);
-        // }
-      };
-      $http(httpConfig)
-      .success(function(data) {
-        deferred.resolve(data);
-      })
-      .error(function(error) {
-        deferred.reject(error);
+
+      $.ajax({
+          url: url,
+          dataType: 'jsonp',
+          success: function(eins, zwei, drei, veir){
+            deferred.resolve(eins);
+          },
+          error : function(eins, zwei, drei, veir) {
+            deferred.reject(eins);
+          }
       });
+
       return deferred.promise;
     }
-  };
+  }
+
+  function getMusicDetailById( musicId ) {
+    var urlPrefix = "http://ting.baidu.com/data/music/links?songIds={";
+    var urlSurfix = "}";
+    var url = urlPrefix + musicId + urlSurfix;
+
+    var deferred = $q.defer();
+
+    $.ajax({
+        url: url,
+        dataType: 'jsonp',
+        success: function(eins, zwei, drei, veir){
+          deferred.resolve(eins);
+        },
+        error : function(eins, zwei, drei, veir) {
+          deferred.reject(eins);
+        }
+    });
+
+    return deferred.promise;
+  }
+
 };
 myApp.factory("musicDownloadService", MusicDownloadService)

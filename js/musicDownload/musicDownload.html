@@ -2,11 +2,31 @@
   <div class="col-md-12">
     <form>
       <div class="form-group">
-        <label for="musicNameInput">请输入歌名</label>
-        <input type="text" class="form-control" id="musicNameInput" placeholder="请输入歌名" data-ng-model="musicName">
+        <label for="musicNameInput">请在下面输入歌名或者歌手名</label>
+        <input type="text" class="form-control" id="musicNameInput" placeholder="请在下面输入歌名或者歌手名" data-ng-model="musicName">
       </div>
-      <button type="submit" class="btn btn-success" data-ng-click="searchMusicByName()">搜索</button>
+      <button type="submit" class="btn btn-success" data-ng-click="searchMusicByName()">搜索歌名中含有"{{musicName}}"的歌曲</button>
     </form>
   </div>
-  <iframe id="musicSearchList" class="col-md-12" frameborder="0"></iframe>
+  <hr class="col-md-12">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>歌名</th>
+          <th>歌手</th>
+          <th>下载</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="song in musicList">
+          <th>{{$index + 1}}</th>
+          <th>{{song.songname}}</th>
+          <th>{{song.artistname}}</th>
+          <th><button type="button" class="btn btn-primary" data-ng-click="downloadSong(song.songid)">下载</button></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
