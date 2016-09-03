@@ -11,6 +11,7 @@ function MusicDownloadCtrl( $scope, MusicD ) {
         if( data.errno !== undefined ) {
           // music name cannot be searched
           alert("搜不到音乐名含有 \"" + $scope.musicName + "\" 的音乐");
+          $scope.musicList = [];
         } else {
           $scope.musicList = data.song;
         }
@@ -20,6 +21,7 @@ function MusicDownloadCtrl( $scope, MusicD ) {
       });
     } else {
       alert("音乐名不能为空！");
+      $scope.musicList = [];
     }
 
   };
