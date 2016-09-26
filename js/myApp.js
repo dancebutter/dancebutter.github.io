@@ -15,5 +15,9 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
     state('musicDownload', {
       url : "/musicDownload",
       templateUrl : "js/musicDownload/musicDownload.html"
+    }).
+    state('peipeiPage', {
+      url : "/peipeiPage",
+      templateUrl : "js/peipeiPage/peipeiPage.html"
     });
 }]);
