@@ -30,13 +30,14 @@ function GamePageCtrl($scope) {
       summonerName : 'woaichibaozi',
       summonerId : 32524746,
       actived : false
-    },
+    }
+    /*,
     'AsapAoi' : {
         nickName : '变态儿童',
         summonerName : 'AsapAoi',
         summonerId : 69539468,
         actived : false
-    }
+    }*/
   };
   $scope.activedSummoner = $scope.summonerList.uncletai;
   $scope.testTemp = null;
