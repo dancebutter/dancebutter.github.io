@@ -8,16 +8,16 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
       url : "/gamePage",
       templateUrl : "js/gamePage/gamePage.html"
     })
-    .state('timeTable', {
-      url : "/timeTable",
-      templateUrl : "js/timeTable/timeTable.html"
-    }).
-    state('musicDownload', {
+    .state('reportGene', {
+      url : "/reportGene",
+      templateUrl : "js/reportGene/reportGene.html"
+    });
+    /*.state('musicDownload', {
       url : "/musicDownload",
       templateUrl : "js/musicDownload/musicDownload.html"
-    }).
-    state('peipeiPage', {
+    })
+    .state('peipeiPage', {
       url : "/peipeiPage",
       templateUrl : "js/peipeiPage/peipeiPage.html"
-    });
+  });*/
 }]);
