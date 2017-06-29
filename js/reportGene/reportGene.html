@@ -1,11 +1,21 @@
 <div class="container" data-ng-controller="reportGeneCtrl">
-    <p>{{test}}</p>
-    <!-- <ul class="nav nav-tabs">
-        <li role="presentation"
-        data-ng-repeat="(key, value) in summonerList track by $index"
-        data-ng-class="{active : value.actived}"
-        data-ng-click="clickName(value);">
-        <a href="#">{{value.nickName}}</a>
-        </li>
-    </ul> -->
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation"
+      data-ng-repeat="(key, value) in pageList track by $index"
+      data-ng-class="{active : value.actived}"
+      data-ng-click="clickPage(value);">
+        <a href="#">{{value.pageName}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-12" data-ng-show="pageList.uploadPage.actived">
+    AAA
+  </div>
+  <div class="col-md-12" data-ng-show="pageList.editPage.actived">
+    BBB
+  </div>
+  <div class="col-md-12" data-ng-show="pageList.resultPage.actived">
+    CCC
+  </div>
 </div>
