@@ -14,14 +14,23 @@
     actived-game="activedGame"
     data-ng-show="gameListShow"
     ></game-list-directive>
-  <game-detail-directive
+  <!-- <game-detail-directive
     actived-summoner="activedSummoner"
     actived-game-id="activedGameId"
     actived-game="activedGame"
-    data-ng-show="gameDetailShow"></game-detail-directive>
+    data-ng-show="gameDetailShow"></game-detail-directive> -->
   <!-- <div class="row">
     <input type="textarea" class="col-md-12" data-ng-model="gameDataJsonStr"/>
     <button class="btn btn-primary"
             data-ng-click="submitGameData(gameDataJsonStr);">submit</button>
   </div> -->
+  <ul class="nav nav-tabs">
+    <!-- <li role="presentation" class="active"><a href="#">Home</a></li> -->
+    <li role="presentation"
+        data-ng-repeat="(key, value) in summonerList track by $index"
+        data-ng-class="{active : value.actived}"
+        data-ng-click="clickName(value);">
+        <a href="#">{{value.nickName}}</a>
+    </li>
+  </ul>
 </div>

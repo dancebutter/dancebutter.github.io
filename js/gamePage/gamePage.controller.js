@@ -71,6 +71,12 @@ function GamePageCtrl($scope) {
     $scope.gameDataJson = JSON.parse( gameDataJsonStr );
   };
   // functions end
+
+  function init() {
+    
+  }
+
+  init();
 }
 
 myApp.controller('gamePageCtrl', GamePageCtrl);
