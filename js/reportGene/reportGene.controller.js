@@ -29,10 +29,9 @@ function ReportGeneCtrl($scope) {
       $scope.activedPage = page;
     };
     $scope.read = function(workbook) {
-    console.log(workbook);
-    $scope.jsonSheet = XLSX.utils.sheet_to_json(workbook.Sheets.sheet1);
-    // $scope.$apply();
-
+      console.log(workbook);
+      $scope.jsonSheet = XLSX.utils.sheet_to_json(workbook.Sheets.sheet1);
+      $scope.$apply();
     };
     $scope.error = function(e) {
         console.log("[ERROR] Error happened during loading.");

@@ -14,7 +14,24 @@
     <div class="col-md-12">
       <js-xls onread="read" onerror="error"></js-xls>
     </div>
-    <!-- <button class="btn btn-primary">Upload</button> -->
+
+			<!-- List of Students -->
+			<div class="col-md-12" data-ng-show="tags[1].visible">
+				<table class="table">
+					<tr>
+						<th>#</th>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>Grade</th>
+					</tr>
+					<tr ng-repeat="item in jsonSheet">
+						<td>{{$index}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.gender}}</td>
+						<td>{{item.grade}}</td>
+					</tr>
+				</table>
+			</div>
   </div>
   <div class="col-md-12" data-ng-show="pageList.editPage.actived">
     <!-- templates editing page -->
