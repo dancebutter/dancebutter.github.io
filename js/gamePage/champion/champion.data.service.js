@@ -2,7 +2,7 @@ ChampionDataService.$inject = ['$http', '$q'];
 function ChampionDataService( $http, $q ) {
   // var BASE_URL = 'https://na.api.pvp.net/api/lol/na/v1.2/champion/';
   var BASE_URL = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion';
-  var API_KEY = 'b5372e49-1de2-49cd-bc63-98a7e6564ad9';
+  var API_KEY = 'RGAPI-59cc909b-5308-436b-860c-c00e8fa5646c';
   var MOCK_URL = 'js/championList.json';
   var headers = {
         'User-Agent' : 'Riot-Games-Developer-Portal',
