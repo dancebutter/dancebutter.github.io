@@ -5,30 +5,35 @@ function GamePageCtrl($scope) {
       nickName : '我',
       summonerName : 'uncletai',
       summonerId : 35793439,
+      "accountId": 50361040,
       actived : true
     },
     'geminiroy' : {
       nickName : '罗伊',
       summonerName : 'geminiroy',
       summonerId : 35448330,
+      "accountId": 50074858,
       actived : false
     },
     'personalbusiness' : {
       nickName : '二轮',
       summonerName : 'personalbusiness',
       summonerId : 35468371,
+      "accountId": 50075190,
       actived : false
     },
     '00Mirana00' : {
       nickName : '拉里',
       summonerName : '00Mirana00',
       summonerId : 25857364,
+      "accountId": 40540315,
       actived : false
     },
     'woaichibaozi' : {
       nickName : '李老师',
       summonerName : 'woaichibaozi',
       summonerId : 32524746,
+      "accountId": 47431769,
       actived : false
     }
     /*,
@@ -73,7 +78,7 @@ function GamePageCtrl($scope) {
   // functions end
 
   function init() {
-    
+
   }
 
   init();
