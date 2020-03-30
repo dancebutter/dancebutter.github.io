@@ -1,91 +1,87 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
   <head>
-    <link rel="icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon">
-    <!-- <link rel="icon" href="animated_favicon1.gif" type="image/gif" > -->
-    <script type="text/javascript" src="js/openSource/jquery-1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="js/openSource/angular-1.5.8/angular.min.js"></script>
-    <script type="text/javascript" src="js/openSource/angular-1.5.8/angular-resource.min.js"></script>
-    <script type="text/javascript" src="js/openSource/angular-ui-router-0.2.18/angular-ui-router.min.js"></script>
-    <link rel="stylesheet" href="js/openSource/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="js/openSource/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="js/openSource/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-    <script src="js/openSource/Highcharts-4.2.5/js/highcharts.js"></script>
-    <script src="js/openSource/Highcharts-4.2.5/js/highcharts-more.js"></script>
-    <!-- xlsx reader -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.9.7/xlsx.full.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.6/xls.core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.6/xls.full.min.js"></script> -->
-    <!-- AngularJs xlsx -->
-    <script src="js/openSource/angular-js-xlsx/angular-js-xlsx.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- These tags are needed for enabling experimental Chrome APIs via Chrome's Origin-Trial program (Android, Windows): https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/available-trials.md#current-experimental-features -->
+    <!-- Origin Trial Token, feature = Generic Sensors, origin = https://github.io, expires = 2018-04-10 -->
+    <meta http-equiv="origin-trial" data-feature="Generic Sensors" data-expires="2018-04-10" content="Aokv0ODVMUPIswIBi6DnpAIjhWefEd8gD8GpVgdYgETj0C5+/3kKMzZE/FOrBwHcpBO6LHuVRrIw3yOT8EMmJAYAAABQeyJvcmlnaW4iOiJodHRwczovL2dpdGh1Yi5pbzo0NDMiLCJmZWF0dXJlIjoiR2VuZXJpY1NlbnNvciIsImV4cGlyeSI6MTUyMzMxODQwMH0=">
+    <!-- Origin Trial Token, feature = WebVR (For Chrome M62+), origin = https://github.io, expires = 2018-05-07 -->
+    <meta http-equiv="origin-trial" data-feature="WebVR (For Chrome M62+)" data-expires="2018-05-07" content="AgINztgDnjFV8da2D9SSzIITBRlHX8mduCR7DXfENxjr9ALduKOxBDdn2n66auQSlljVyhnRWWerxC0BWbE8pAoAAABOeyJvcmlnaW4iOiJodHRwczovL2dpdGh1Yi5pbzo0NDMiLCJmZWF0dXJlIjoiV2ViVlIxLjFNNjIiLCJleHBpcnkiOjE1MjU3MjU4MDh9">
+    <title>WebGL VR Test | WebGLSpikes</title>
+    <meta name="description" content="Complete interactive 3D scene demo made in Unity and exported to WebVR with the WebVR template of the Unity WebVR assets">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="styles/webvr.css">
+    <script src="lib/telemetry.js"></script>
+    <script>
+      MozillaResearch.telemetry.start({
+        analytics: true,
+        errorLogging: true,
+        performance: true
+      });
+      MozillaResearch.telemetry.performance.mark('LoaderParsingStart');
+    </script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      /* global UnityLoader, MozillaResearch */
+      MozillaResearch.telemetry.performance.measure('LoaderParsing', 'LoaderParsingStart');
+      (function () {
+        UnityLoader.SystemInfo.mobile = false;  // Workaround to force `UnityLoader` to actually load on mobile.
+        MozillaResearch.telemetry.performance.mark('LoadingStart');
+        window.gameInstance = UnityLoader.instantiate('gameContainer', 'Build/v1.json', {
+          Module: {
+            // `preserveDrawingBuffer` is needed for WebVR content to be mirrored to the `<canvas>`.
+            webglContextAttributes: {
+              preserveDrawingBuffer: true
+            }
+          },
+          onProgress: unityProgress
+        });
 
-    <script src="js/myApp.js"></script>
-    <script src="js/myCtrl.js"></script>
-    <!-- game page start -->
-    <script src="js/gamePage/gamePage.controller.js"></script>
-    <script src="js/gamePage/game/game.data.service.js"></script>
-    <script src="js/gamePage/champion/champion.data.service.js"></script>
-    <script src="js/gamePage/game/game.detail.chart.config.js"></script>
-    <script src="js/gamePage/gameList/gameListDirective.js"></script>
-    <script src="js/gamePage/game/game.detail.directive.js"></script>
-    <!-- game page end -->
-
-    <!-- Report Generator Page -->
-    <script src="js/reportGene/reportGene.controller.js"></script>
-    <!-- Report Generator Page End -->
-
-    <!-- Music Download Page -->
-    <!-- <link rel="stylesheet" href="js/musicDownload/musicDownload.css">
-    <script src="js/musicDownload/musicDownload.service.js"></script>
-    <script src="js/musicDownload/musicDowload.controller.js"></script> -->
-    <!-- Music Download Page End -->
-
-    <!-- Peppa pig page -->
-    <!-- <script src="js/peipeiPage/peipeiPage.controller.js"></script> -->
-    <!-- Peppa pig page End -->
-
+        function unityProgress (gameInstance, progress) {
+          if (!gameInstance.progress) {
+            gameInstance.loader = document.getElementById('loader');
+            gameInstance.progress = document.getElementById('progress');
+            gameInstance.loading = document.getElementById('loading');
+            document.dispatchEvent(new CustomEvent('UnityProgressStart'));
+          }
+          gameInstance.progress.style.width = (100 * progress) + '%';
+          if (progress === 1) {
+            document.dispatchEvent(new CustomEvent('UnityLoaded'));
+          }
+        }
+      })();
+    </script>
+    <link rel="manifest" href="manifest.webmanifest">
   </head>
+  <body>
+    <div id="loader">
+      <div id="loading" class="loading">Loading</div>
+      <div id="progress" class="progress"></div>
+    </div>
 
-  <body ng-app="myApp" data-ng-controller="myCtrl">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">My Playground</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li role="presentation"
-                data-ng-class="active">
-                <a ui-sref="gamePage">GameHistory</a>
-            </li>
-            <li role="presentation"
-                data-ng-class="">
-                <a ui-sref="reportGene">Report</a>
-            </li>
-            <!-- <li role="presentation"
-                data-ng-class="">
-                <a ui-sref="musicDownload">MusicDownload</a>
-            </li> -->
-            <!-- <li role="presentation"
-                data-ng-class="">
-                <a ui-sref="peipeiPage">Peppa Pig</a>
-            </li> -->
-          </ul>
-        </div>
+    <div id="game">
+      <div id="gameContainer"></div>
+    </div>
+
+    <div id="instruction">
+      <div id="novr" class="panel center">
+        <h3>You&rsquo;ll need a <a href="https://webvr.rocks/">WebVR-enabled browser</a> and VR headset to fully enjoy this experience.</h3>
+        <p><img src="mousedrag.png" width="70" alt="Click-and-drag your mouse"></p>
+        <p>In the meantime, <strong><em>click and drag</em></strong> to have a look around!</p>
+        <p>
+          <button class="confirm">Continue</button>
+        </p>
       </div>
-    </nav>
-    <br><br><br>
-    <div ui-view></div>
+    </div>
+
+    <button id="entervr" value="Enter VR"></button>
+
+    <div id="performance" data-enabled="false"></div>
+
+    <script src="vendor/gl-matrix-min.js"></script>
+    <script src="vendor/webvr-polyfill.min.js"></script>
+    <script src="webvr.js"></script>
   </body>
 
 </html>
